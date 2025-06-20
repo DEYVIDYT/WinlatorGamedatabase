@@ -67,12 +67,9 @@
         <item name="android:background">@color/xbox_surface_dark</item>
         <item name="itemIconTint">@color/xbox_text_secondary_dark</item>
         <item name="itemTextColor">@color/xbox_text_primary_dark</item>
-        <item name="itemActiveIndicatorStyle">@style/Widget.App.NavigationView.ActiveIndicator</item>
         <!-- <item name="itemShapeAppearanceOverlay">@null</item> remove rounded corners if desired -->
     </style>
-     <style name="Widget.App.NavigationView.ActiveIndicator" parent="Widget.Material3.NavigationView.ActiveIndicator">
-         <item name="android:color">@color/xbox_accent_green_variant</item>
-     </style>
+    <!-- Widget.App.NavigationView.ActiveIndicator style removed -->
 
 
     <style name="Widget.App.Button" parent="Widget.Material3.Button">
