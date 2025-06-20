@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Winlator Download</string>
+    <string name="download">Download</string>
+    <string name="error_loading_versions">Falha ao carregar versões. Verifique sua conexão.</string>
+    <string name="error_loading_releases">Falha ao carregar releases. Verifique sua conexão.</string>
+    <string name="no_releases_found">Nenhum release encontrado para %1$s</string>
+    <string name="loading">Carregando...</string>
+    <string name="releases_title">Releases - %1$s</string>
+    <string name="winlator_downloads">Winlator Downloads</string>
+    
+    <!-- Download Manager Strings -->
+    <string name="download_manager_title">Gerenciador de Downloads</string>
+    <string name="no_downloads">Nenhum download encontrado</string>
+    <string name="clear_completed_downloads">Limpar concluídos</string>
+    <string name="pause_download">Pausar download</string>
+    <string name="resume_download">Continuar download</string>
+    <string name="cancel_download">Cancelar download</string>
+    <string name="install_apk">Instalar APK</string>
+    <string name="status_pending">Pendente</string>
+    <string name="status_downloading">Baixando</string>
+    <string name="status_paused">Pausado</string>
+    <string name="status_completed">Concluído</string>
+    <string name="status_failed">Falhou</string>
+    <string name="download_speed">%1$s/s</string>
+    <string name="download_size">%1$s / %2$s</string>
+    <string name="confirm_cancel_download">Deseja realmente cancelar este download?</string>
+    <string name="confirm_clear_completed">Deseja remover todos os downloads concluídos da lista?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="downloads">Downloads</string>
+
+    <!-- Strings for Multi-selection -->
+    <string name="delete_selected">Excluir Selecionados</string>
+    <string name="confirm_delete_selected_title">Confirmar Exclusão</string>
+    <string name="confirm_delete_selected_message">Tem certeza que deseja excluir os %1$d downloads selecionados? Os arquivos baixados também serão removidos.</string>
+    <string name="selection_count">%1$d selecionado(s)</string>
+    <string name="action_delete">Excluir</string>
+    <string name="action_select_all">Selecionar Tudo</string>
+
+    <string-array name="size_units_array">
+        <item>MB</item>
+        <item>GB</item>
+    </string-array>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dynamic Colors - Material You (Dark Theme) -->
+    <!-- As cores serão automaticamente geradas pelo sistema baseadas no wallpaper do usuário -->
+    
+    <!-- Cores de fallback para tema escuro caso o Dynamic Color não esteja disponível -->
+    <color name="fallback_primary">#D0BCFF</color>
+    <color name="fallback_on_primary">#381E72</color>
+    <color name="fallback_primary_container">#4F378B</color>
+    <color name="fallback_on_primary_container">#EADDFF</color>
+    
+    <color name="fallback_secondary">#CCC2DC</color>
+    <color name="fallback_on_secondary">#332D41</color>
+    <color name="fallback_secondary_container">#4A4458</color>
+    <color name="fallback_on_secondary_container">#E8DEF8</color>
+    
+    <color name="fallback_tertiary">#EFB8C8</color>
+    <color name="fallback_on_tertiary">#492532</color>
+    <color name="fallback_tertiary_container">#633B48</color>
+    <color name="fallback_on_tertiary_container">#FFD8E4</color>
+    
+    <color name="fallback_error">#FFB4AB</color>
+    <color name="fallback_on_error">#690005</color>
+    <color name="fallback_error_container">#93000A</color>
+    <color name="fallback_on_error_container">#FFDAD6</color>
+    
+    <color name="fallback_background">#10131C</color>
+    <color name="fallback_on_background">#E6E1E5</color>
+    <color name="fallback_surface">#10131C</color>
+    <color name="fallback_on_surface">#E6E1E5</color>
+    
+    <color name="fallback_surface_variant">#49454F</color>
+    <color name="fallback_on_surface_variant">#CAC4D0</color>
+    <color name="fallback_outline">#938F99</color>
+    <color name="fallback_outline_variant">#49454F</color>
+    
+    <!-- Cores transparentes para barras de sistema -->
+    <color name="transparent">#00000000</color>
+</resources>
+

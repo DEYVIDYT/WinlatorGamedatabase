@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <!-- Base application theme. -->
+  <style name="Base.Theme.WinlatorDownloader" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Habilitar Dynamic Colors do Material You -->
+    <item name="android:windowBackground">?attr/colorSurface</item> 
+    <item name="android:statusBarColor">@android:color/transparent</item>
+    <item name="android:navigationBarColor">@android:color/transparent</item>
+    <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    <item name="android:enforceNavigationBarContrast" tools:targetApi="q">true</item>
+    <item name="android:enforceStatusBarContrast" tools:targetApi="q">true</item>
+    
+    <!-- Fallback para dispositivos sem suporte a Dynamic Colors -->
+    <item name="colorPrimary">@color/fallback_primary</item>
+    <item name="colorOnPrimary">@color/fallback_on_primary</item>
+    <item name="colorPrimaryContainer">@color/fallback_primary_container</item>
+    <item name="colorOnPrimaryContainer">@color/fallback_on_primary_container</item>
+    
+    <item name="colorSecondary">@color/fallback_secondary</item>
+    <item name="colorOnSecondary">@color/fallback_on_secondary</item>
+    <item name="colorSecondaryContainer">@color/fallback_secondary_container</item>
+    <item name="colorOnSecondaryContainer">@color/fallback_on_secondary_container</item>
+    
+    <item name="colorTertiary">@color/fallback_tertiary</item>
+    <item name="colorOnTertiary">@color/fallback_on_tertiary</item>
+    <item name="colorTertiaryContainer">@color/fallback_tertiary_container</item>
+    <item name="colorOnTertiaryContainer">@color/fallback_on_tertiary_container</item>
+    
+    <item name="colorError">@color/fallback_error</item>
+    <item name="colorOnError">@color/fallback_on_error</item>
+    <item name="colorErrorContainer">@color/fallback_error_container</item>
+    <item name="colorOnErrorContainer">@color/fallback_on_error_container</item>
+    
+    <item name="android:colorBackground">@color/fallback_background</item>
+    <item name="colorOnBackground">@color/fallback_on_background</item>
+    <item name="colorSurface">@color/fallback_surface</item>
+    <item name="colorOnSurface">@color/fallback_on_surface</item>
+    
+    <item name="colorSurfaceVariant">@color/fallback_surface_variant</item>
+    <item name="colorOnSurfaceVariant">@color/fallback_on_surface_variant</item>
+    <item name="colorOutline">@color/fallback_outline</item>
+    
+    <!-- Customize ActionMode for selection -->
+    <item name="actionModeBackground">?attr/colorPrimaryContainer</item>
+    <item name="actionModeCloseDrawable">@android:drawable/ic_menu_close_clear_cancel</item>
+    <item name="actionModeCloseButtonStyle">@style/Widget.AppCompat.ActionButton.CloseMode</item>
+    <item name="actionBarTheme">@style/ThemeOverlay.Material3.ActionBar</item>
+    <item name="actionModeStyle">@style/Widget.Material3.ActionMode</item>
+  </style>
+
+  <style name="Theme.WinlatorDownloader" parent="Base.Theme.WinlatorDownloader" />
+  
+  <!-- Estilo para botões -->
+  <style name="Widget.App.Button" parent="Widget.Material3.Button">
+    <item name="android:textAppearance">?attr/textAppearanceBodyMedium</item>
+  </style>
+  
+  <!-- Estilo para cards -->
+  <style name="Widget.App.CardView" parent="Widget.Material3.CardView.Elevated">
+    <item name="cardElevation">2dp</item>
+    <item name="cardCornerRadius">12dp</item>
+  </style>
+</resources>
+

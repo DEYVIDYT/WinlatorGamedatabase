@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_downloads"
+        android:icon="@drawable/ic_download"
+        android:title="@string/downloads"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_community_games"
+        android:icon="@drawable/ic_upload"
+        android:title="Configurações"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_upload_monitor"
+        android:icon="@drawable/ic_upload"
+        android:title="Monitor de Uploads"
+        app:showAsAction="never" />
+</menu>
+

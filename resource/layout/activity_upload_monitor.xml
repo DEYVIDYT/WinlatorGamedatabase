@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Monitor de Uploads"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:gravity="center"
+        android:background="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_uploads"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp" />
+
+</LinearLayout>
+
