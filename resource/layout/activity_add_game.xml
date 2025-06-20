@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorBackground"
+    android:background="?android:attr/colorBackground"
     tools:context=".AddGameActivity">
 
     <LinearLayout
@@ -45,8 +45,7 @@
             android:layout_height="200dp"
             android:layout_marginTop="16dp"
             android:scaleType="centerCrop"
-            android:background="@android:color/darker_gray"
-            app:srcCompat="@drawable/ic_launcher_background" /> <!-- Default placeholder -->
+            android:background="@color/xbox_surface_dark" /> <!-- Default placeholder, src removed -->
 
         <Button
             android:id="@+id/btn_select_banner_image"
