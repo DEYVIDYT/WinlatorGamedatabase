@@ -154,13 +154,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (itemId == R.id.action_downloads) {
             startActivity(new Intent(this, DownloadManagerActivity.class));
             return true;
-        } else if (itemId == R.id.action_community_games) {
-            startActivity(new Intent(this, SettingsActivity.class));
-            return true;
-        } else if (itemId == R.id.action_upload_monitor) {
-            startActivity(new Intent(this, UploadMonitorActivity.class));
-            return true;
         }
+        // Removed R.id.action_community_games
+        // Removed R.id.action_upload_monitor
         return super.onOptionsItemSelected(item);
     }
 

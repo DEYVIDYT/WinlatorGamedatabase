@@ -1,8 +1,5 @@
 package com.winlator.Download;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,15 +7,25 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.material.textfield.TextInputEditText;
-import com.winlator.Download.model.GameEntry;
-import com.winlator.Download.db.GamesDatabaseHelper;
-import com.winlator.Download.utils.FilePathUtil; // Import the new utility
 
-    private TextInputEditText etGameTitle;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.color.DynamicColors;
+import com.winlator.Download.db.GamesDatabaseHelper;
+import com.winlator.Download.model.GameEntry;
+import com.winlator.Download.utils.FilePathUtil;
+
+import java.io.File;
+
+public class AddGameActivity extends AppCompatActivity {
+
+    private EditText etGameTitle;
     private Button btnSelectDesktopFile;
     private TextView tvSelectedDesktopFile;
     private ImageView ivBannerPreview;
@@ -26,17 +33,21 @@ import com.winlator.Download.utils.FilePathUtil; // Import the new utility
     private TextView tvSelectedBannerImage;
     private Button btnSaveGame;
 
-    private String realDesktopPath; // Changed from Uri to String
-    private String realBannerPath;  // Changed from Uri to String
+    private String realDesktopPath;
+    private String realBannerPath;
 
-    // ActivityResultLaunchers for file pickers
     private ActivityResultLauncher<Intent> desktopFilePickerLauncher;
     private ActivityResultLauncher<Intent> bannerImagePickerLauncher;
+
+    private GamesDatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DynamicColors.applyToActivityIfAvailable(this);
         setContentView(R.layout.activity_add_game);
+
+        dbHelper = new GamesDatabaseHelper(this);
 
         etGameTitle = findViewById(R.id.et_game_title);
         btnSelectDesktopFile = findViewById(R.id.btn_select_desktop_file);
@@ -46,137 +57,98 @@ import com.winlator.Download.utils.FilePathUtil; // Import the new utility
         tvSelectedBannerImage = findViewById(R.id.tv_selected_banner_image);
         btnSaveGame = findViewById(R.id.btn_save_game);
 
-        setupLaunchers();
-
-        btnSelectDesktopFile.setOnClickListener(v -> openDesktopFilePicker());
-        btnSelectBannerImage.setOnClickListener(v -> openBannerImagePicker());
-        btnSaveGame.setOnClickListener(v -> saveGame());
-    }
-
-    private void setupLaunchers() {
         desktopFilePickerLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                    Uri uri = result.getData().getData();
-                    if (uri != null) {
-                        realDesktopPath = FilePathUtil.getPathFromUri(this, uri);
-                        if (realDesktopPath != null) {
-                            tvSelectedDesktopFile.setText(realDesktopPath);
-                            String fileName = PathUtils.getFileName(this, uri); // Use original URI for filename
-                            if (fileName != null) {
-                                int dotIndex = fileName.lastIndexOf('.');
-                                if (dotIndex > 0) {
-                                    etGameTitle.setText(fileName.substring(0, dotIndex));
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                        Uri uri = result.getData().getData();
+                        if (uri != null) {
+                            realDesktopPath = FilePathUtil.getPathFromUri(this, uri);
+                            if (realDesktopPath != null) {
+                                tvSelectedDesktopFile.setText(realDesktopPath);
+                                File desktopFile = new File(realDesktopPath);
+                                String fileName = desktopFile.getName();
+                                int lastDot = fileName.lastIndexOf('.');
+                                if (lastDot > 0) {
+                                    etGameTitle.setText(fileName.substring(0, lastDot));
                                 } else {
                                     etGameTitle.setText(fileName);
                                 }
+                            } else {
+                                tvSelectedDesktopFile.setText("Could not resolve file path.");
+                                Toast.makeText(this, "Could not get file path for .desktop file.", Toast.LENGTH_SHORT).show();
                             }
-                        } else {
-                            tvSelectedDesktopFile.setText("Error: Could not get file path.");
-                            Toast.makeText(this, "Could not get file path. Please select a file from local storage or a different file manager.", Toast.LENGTH_LONG).show();
                         }
                     }
-                }
-            });
+                });
 
         bannerImagePickerLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                    Uri uri = result.getData().getData();
-                    if (uri != null) {
-                        realBannerPath = FilePathUtil.getPathFromUri(this, uri);
-                        if (realBannerPath != null) {
-                            ivBannerPreview.setImageURI(Uri.fromFile(new java.io.File(realBannerPath))); //setImageURI needs a file URI for local paths
-                            tvSelectedBannerImage.setText(realBannerPath);
-                        } else {
-                            // If path conversion fails, try setting URI directly (might work for some URIs in ImageView)
-                            ivBannerPreview.setImageURI(uri);
-                            tvSelectedBannerImage.setText("Warning: Could not get direct file path. Displaying from URI.");
-                            // Store the original URI string if path conversion fails but we want to save something.
-                            // However, for consistency and if Winlator *needs* a path, this might be an issue.
-                            // For now, we prioritize real path. If it's null, banner path will be null.
-                            realBannerPath = null; // Explicitly set to null if path conversion failed
-                             Toast.makeText(this, "Could not get banner file path. Preview might work, but saving might use URI or fail if path is strictly needed.", Toast.LENGTH_LONG).show();
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                        Uri uri = result.getData().getData();
+                        if (uri != null) {
+                            realBannerPath = FilePathUtil.getPathFromUri(this, uri);
+                            if (realBannerPath != null) {
+                                tvSelectedBannerImage.setText(realBannerPath);
+                                ivBannerPreview.setImageURI(Uri.fromFile(new File(realBannerPath)));
+                            } else {
+                                tvSelectedBannerImage.setText("Could not resolve image path.");
+                                Toast.makeText(this, "Could not get file path for banner image.", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
-                }
-            });
-    }
+                });
 
-    private void openDesktopFilePicker() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("*/*"); // MIME type for .desktop files can be tricky.
-        // You might want to add multiple types if known: intent.putExtra(Intent.EXTRA_MIME_TYPES, new String[]{"application/x-desktop", "text/plain"});
-        desktopFilePickerLauncher.launch(intent);
-    }
+        btnSelectDesktopFile.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.setType("*/*");
+            try {
+                desktopFilePickerLauncher.launch(intent);
+            } catch (Exception e) {
+                Toast.makeText(this, "Error launching file picker: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
 
-    private void openBannerImagePicker() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT); // ACTION_PICK is also an option
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("image/*");
-        bannerImagePickerLauncher.launch(intent);
+        btnSelectBannerImage.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.setType("image/*");
+            try {
+                bannerImagePickerLauncher.launch(intent);
+            } catch (Exception e) {
+                Toast.makeText(this, "Error launching image picker: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnSaveGame.setOnClickListener(v -> saveGame());
     }
 
     private void saveGame() {
         String title = etGameTitle.getText().toString().trim();
 
         if (TextUtils.isEmpty(title)) {
-            etGameTitle.setError("Title cannot be empty");
-            etGameTitle.requestFocus();
+            Toast.makeText(this, "Game title is required.", Toast.LENGTH_SHORT).show();
+            etGameTitle.setError("Title required");
             return;
         }
 
         if (TextUtils.isEmpty(realDesktopPath)) {
-            Toast.makeText(this, "Please select a .desktop file and ensure its path can be resolved.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, ".desktop file path is missing.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // realBannerPath can be null or empty if not selected or path couldn't be resolved.
-        String finalBannerPath = (realBannerPath != null) ? realBannerPath : "";
+        String bannerPathToSave = TextUtils.isEmpty(realBannerPath) ? null : realBannerPath;
 
+        GameEntry newGame = new GameEntry(0, title, realDesktopPath, bannerPathToSave);
+        long id = dbHelper.addGame(newGame);
 
-        // Create GameEntry object
-        GameEntry newGame = new GameEntry(0, title, realDesktopPath, finalBannerPath); // ID will be auto-generated
-
-        // Get instance of GamesDatabaseHelper
-        GamesDatabaseHelper dbHelper = new GamesDatabaseHelper(this);
-
-        // Call addGame()
-        long newRowId = dbHelper.addGame(newGame);
-
-        if (newRowId != -1) {
-            Toast.makeText(this, "Game saved successfully! Path: " + realDesktopPath, Toast.LENGTH_LONG).show();
-            finish(); // Close activity after saving
+        if (id != -1) {
+            Toast.makeText(this, "Game saved successfully!", Toast.LENGTH_SHORT).show();
+            finish();
         } else {
             Toast.makeText(this, "Error saving game.", Toast.LENGTH_SHORT).show();
         }
-    }
-}
-
-// Utility class (can be moved to a separate file if needed)
-class PathUtils {
-    public static String getFileName(android.content.Context context, Uri uri) {
-        String result = null;
-        if (uri.getScheme().equals("content")) {
-            try (android.database.Cursor cursor = context.getContentResolver().query(uri, null, null, null, null)) {
-                if (cursor != null && cursor.moveToFirst()) {
-                    int nameIndex = cursor.getColumnIndex(android.provider.OpenableColumns.DISPLAY_NAME);
-                    if (nameIndex != -1) {
-                         result = cursor.getString(nameIndex);
-                    }
-                }
-            }
-        }
-        if (result == null) {
-            result = uri.getPath();
-            int cut = result.lastIndexOf('/');
-            if (cut != -1) {
-                result = result.substring(cut + 1);
-            }
-        }
-        return result;
     }
 }

@@ -21,11 +21,13 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_game_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColor="?android:attr/textColorPrimary" /> <!-- Ensure text color is theme-aware -->
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btn_select_desktop_file"
+            style="@style/Widget.App.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -36,19 +38,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="No file selected"
-            android:textAppearance="?attr/textAppearanceCaption"/>
+            android:text="No .desktop file selected"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="?android:attr/textColorSecondary"
+            android:padding="8dp"/>
 
         <ImageView
             android:id="@+id/iv_banner_preview"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="180dp"
             android:layout_marginTop="16dp"
             android:scaleType="centerCrop"
-            android:background="@color/xbox_surface_dark" /> <!-- Default placeholder, src removed -->
+            android:contentDescription="Banner Preview"
+            android:background="@color/xbox_surface_dark" />
 
         <Button
             android:id="@+id/btn_select_banner_image"
+            style="@style/Widget.App.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -59,11 +65,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="No image selected"
-            android:textAppearance="?attr/textAppearanceCaption"/>
+            android:text="No banner image selected"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="?android:attr/textColorSecondary"
+            android:padding="8dp"/>
 
         <Button
             android:id="@+id/btn_save_game"
+            style="@style/Widget.App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

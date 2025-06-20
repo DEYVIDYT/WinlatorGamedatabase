@@ -19,11 +19,11 @@ public class CommunityGame {
         this.name = name;
     }
 
-    public String getSize() {
+    public double getSizeInGB() { // Corrected return type and name
         return sizeInGB;
     }
 
-    public void setSizeInGB(double sizeInGB) { // Changed from setSize(String size)
+    public void setSizeInGB(double sizeInGB) {
         this.sizeInGB = sizeInGB;
     }
 
