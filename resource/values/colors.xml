@@ -1,41 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Dynamic Colors - Material You -->
-    <!-- As cores serão automaticamente geradas pelo sistema baseadas no wallpaper do usuário -->
-    <!-- Não definimos cores específicas para permitir que o Dynamic Color funcione -->
-    
-    <!-- Cores de fallback caso o Dynamic Color não esteja disponível -->
-    <color name="fallback_primary">#6750A4</color>
-    <color name="fallback_on_primary">#FFFFFF</color>
-    <color name="fallback_primary_container">#EADDFF</color>
-    <color name="fallback_on_primary_container">#21005D</color>
-    
-    <color name="fallback_secondary">#625B71</color>
-    <color name="fallback_on_secondary">#FFFFFF</color>
-    <color name="fallback_secondary_container">#E8DEF8</color>
-    <color name="fallback_on_secondary_container">#1D192B</color>
-    
-    <color name="fallback_tertiary">#7D5260</color>
-    <color name="fallback_on_tertiary">#FFFFFF</color>
-    <color name="fallback_tertiary_container">#FFD8E4</color>
-    <color name="fallback_on_tertiary_container">#31111D</color>
-    
-    <color name="fallback_error">#BA1A1A</color>
-    <color name="fallback_on_error">#FFFFFF</color>
-    <color name="fallback_error_container">#FFDAD6</color>
-    <color name="fallback_on_error_container">#410002</color>
-    
-    <color name="fallback_background">#FFFBFE</color>
-    <color name="fallback_on_background">#1C1B1F</color>
-    <color name="fallback_surface">#FFFBFE</color>
-    <color name="fallback_on_surface">#1C1B1F</color>
-    
-    <color name="fallback_surface_variant">#E7E0EC</color>
-    <color name="fallback_on_surface_variant">#49454F</color>
-    <color name="fallback_outline">#79747E</color>
-    <color name="fallback_outline_variant">#CAC4D0</color>
-    
-    <!-- Cores transparentes para barras de sistema -->
-    <color name="transparent">#00000000</color>
-</resources>
+    <color name="xbox_background_dark">#FF101010</color>
+    <color name="xbox_surface_dark">#FF1E1E1E</color>
+    <color name="xbox_text_primary_dark">#FFFFFFFF</color>
+    <color name="xbox_text_secondary_dark">#FFA0A0A0</color>
+    <color name="xbox_accent_green">#FF107C10</color>
+    <color name="xbox_accent_green_variant">#FF0D650D</color>
+    <color name="xbox_accent_blue">#FF0078D4</color>
+    <color name="xbox_status_bar_dark">#FF000000</color> <!-- For status bar -->
 
+    <!-- Original colors - can be kept for reference or removed if no longer used -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_gray">#D3D3D3</color>
+    <color name="dark_gray">#A9A9A9</color>
+    <color name="red">#FFFF0000</color>
+    <color name="green">#FF00FF00</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="dialog_background_color_light">#FFFFFF</color>
+    <color name="dialog_text_color_light">#000000</color>
+    <color name="dialog_button_color_light">#007AFF</color>
+    <color name="dialog_background_color_dark">#2C2C2E</color>
+    <color name="dialog_text_color_dark">#FFFFFF</color>
+    <color name="dialog_button_color_dark">#0A84FF</color>
+    <color name="upload_button_background">#4CAF50</color>
+    <color name="upload_button_text">#FFFFFF</color>
+    <color name="cancel_button_background">#F44336</color>
+    <color name="cancel_button_text">#FFFFFF</color>
+    <color name="list_item_selected_background">#E0E0E0</color>
+    <color name="list_item_pressed_background">#D0D0D0</color>
+    <color name="default_text_color">#000000</color>
+    <color name="secondary_text_color">#555555</color>
+    <color name="hint_text_color">#888888</color>
+    <color name="error_color">#D32F2F</color>
+    <color name="divider_color">#BDBDBD</color>
+    <color name="toolbar_background_light">#F5F5F5</color>
+    <color name="toolbar_title_color_light">#212121</color>
+    <color name="toolbar_background_dark">#212121</color>
+    <color name="toolbar_title_color_dark">#FFFFFF</color>
+    <color name="tab_indicator_color_light">#3F51B5</color>
+    <color name="tab_text_color_light">#000000</color>
+    <color name="tab_selected_text_color_light">#303F9F</color>
+    <color name="tab_indicator_color_dark">#7986CB</color>
+    <color name="tab_text_color_dark">#FFFFFF</color>
+    <color name="tab_selected_text_color_dark">#C5CAE9</color>
+    <color name="button_background_color_light">#2196F3</color> <!-- Blue -->
+    <color name="button_text_color_light">#FFFFFF</color>
+    <color name="button_background_color_dark">#5C6BC0</color> <!-- Indigo -->
+    <color name="button_text_color_dark">#FFFFFF</color>
+    <color name="card_background_color_light">#FFFFFF</color>
+    <color name="card_background_color_dark">#424242</color> <!-- Dark Grey -->
+    <color name="fab_background_color_light">#FF4081</color> <!-- Pink -->
+    <color name="fab_icon_color_light">#FFFFFF</color>
+    <color name="fab_background_color_dark">#F06292</color> <!-- Light Pink -->
+    <color name="fab_icon_color_dark">#FFFFFF</color>
+    <color name="bottom_nav_background_light">#FFFFFF</color>
+    <color name="bottom_nav_item_color_light">#757575</color> <!-- Medium Grey -->
+    <color name="bottom_nav_selected_item_color_light">#2196F3</color> <!-- Blue -->
+    <color name="bottom_nav_background_dark">#303030</color> <!-- Darker Grey -->
+    <color name="bottom_nav_item_color_dark">#BDBDBD</color> <!-- Light Grey -->
+    <color name="bottom_nav_selected_item_color_dark">#82B1FF</color> <!-- Light Blue -->
+    <color name="snackbar_background_color_light">#323232</color> <!-- Dark Grey -->
+    <color name="snackbar_text_color_light">#FFFFFF</color>
+    <color name="snackbar_action_text_color_light">#FFAB40</color> <!-- Orange -->
+    <color name="snackbar_background_color_dark">#455A64</color> <!-- Blue Grey -->
+    <color name="snackbar_text_color_dark">#FFFFFF</color>
+    <color name="snackbar_action_text_color_dark">#FFD180</color> <!-- Light Orange -->
+    <color name="download_item_background">#F5F5F5</color>
+    <color name="download_item_text">#333333</color>
+    <color name="download_item_progress_background">#E0E0E0</color>
+    <color name="download_item_progress_fill">#4CAF50</color>
+    <color name="download_item_button_background">#2196F3</color>
+    <color name="download_item_button_text">#FFFFFF</color>
+    <color name="download_item_error_text">#D32F2F</color>
+    <color name="download_manager_background">#FFFFFF</color>
+    <color name="download_manager_toolbar_background">#3F51B5</color>
+    <color name="download_manager_toolbar_title">#FFFFFF</color>
+</resources>

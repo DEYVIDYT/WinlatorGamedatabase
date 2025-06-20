@@ -2,12 +2,12 @@ package com.winlator.Download.model;
 
 public class CommunityGame {
     private String name;
-    private String size;
+    private double sizeInGB; // Changed from String to double
     private String url;
 
-    public CommunityGame(String name, String size, String url) {
+    public CommunityGame(String name, double sizeInGB, String url) {
         this.name = name;
-        this.size = size;
+        this.sizeInGB = sizeInGB;
         this.url = url;
     }
 
@@ -20,11 +20,11 @@ public class CommunityGame {
     }
 
     public String getSize() {
-        return size;
+        return sizeInGB;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setSizeInGB(double sizeInGB) { // Changed from setSize(String size)
+        this.sizeInGB = sizeInGB;
     }
 
     public String getUrl() {

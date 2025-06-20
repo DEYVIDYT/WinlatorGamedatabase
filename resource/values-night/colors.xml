@@ -1,40 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Dynamic Colors - Material You (Dark Theme) -->
-    <!-- As cores serão automaticamente geradas pelo sistema baseadas no wallpaper do usuário -->
-    
-    <!-- Cores de fallback para tema escuro caso o Dynamic Color não esteja disponível -->
-    <color name="fallback_primary">#D0BCFF</color>
-    <color name="fallback_on_primary">#381E72</color>
-    <color name="fallback_primary_container">#4F378B</color>
-    <color name="fallback_on_primary_container">#EADDFF</color>
-    
-    <color name="fallback_secondary">#CCC2DC</color>
-    <color name="fallback_on_secondary">#332D41</color>
-    <color name="fallback_secondary_container">#4A4458</color>
-    <color name="fallback_on_secondary_container">#E8DEF8</color>
-    
-    <color name="fallback_tertiary">#EFB8C8</color>
-    <color name="fallback_on_tertiary">#492532</color>
-    <color name="fallback_tertiary_container">#633B48</color>
-    <color name="fallback_on_tertiary_container">#FFD8E4</color>
-    
-    <color name="fallback_error">#FFB4AB</color>
-    <color name="fallback_on_error">#690005</color>
-    <color name="fallback_error_container">#93000A</color>
-    <color name="fallback_on_error_container">#FFDAD6</color>
-    
-    <color name="fallback_background">#10131C</color>
-    <color name="fallback_on_background">#E6E1E5</color>
-    <color name="fallback_surface">#10131C</color>
-    <color name="fallback_on_surface">#E6E1E5</color>
-    
-    <color name="fallback_surface_variant">#49454F</color>
-    <color name="fallback_on_surface_variant">#CAC4D0</color>
-    <color name="fallback_outline">#938F99</color>
-    <color name="fallback_outline_variant">#49454F</color>
-    
-    <!-- Cores transparentes para barras de sistema -->
-    <color name="transparent">#00000000</color>
-</resources>
+    <!-- For night mode, we can directly reference the xbox_dark colors
+         or define specific night variations if needed.
+         For simplicity, we'll make them the same as the default dark theme. -->
+    <color name="xbox_background_dark">#FF101010</color>
+    <color name="xbox_surface_dark">#FF1E1E1E</color>
+    <color name="xbox_text_primary_dark">#FFFFFFFF</color>
+    <color name="xbox_text_secondary_dark">#FFA0A0A0</color>
+    <color name="xbox_accent_green">#FF107C10</color>
+    <color name="xbox_accent_green_variant">#FF0D650D</color>
+    <color name="xbox_accent_blue">#FF0078D4</color>
+    <color name="xbox_status_bar_dark">#FF000000</color>
 
+    <!-- Original night colors can be removed or kept for reference -->
+    <color name="dialog_background_color_dark">#2C2C2E</color>
+    <color name="dialog_text_color_dark">#FFFFFF</color>
+    <color name="dialog_button_color_dark">#0A84FF</color>
+    <color name="toolbar_background_dark">#212121</color>
+    <color name="toolbar_title_color_dark">#FFFFFF</color>
+    <color name="tab_indicator_color_dark">#7986CB</color>
+    <color name="tab_text_color_dark">#FFFFFF</color>
+    <color name="tab_selected_text_color_dark">#C5CAE9</color>
+    <color name="button_background_color_dark">#5C6BC0</color>
+    <color name="button_text_color_dark">#FFFFFF</color>
+    <color name="card_background_color_dark">#424242</color>
+    <color name="fab_background_color_dark">#F06292</color>
+    <color name="fab_icon_color_dark">#FFFFFF</color>
+    <color name="bottom_nav_background_dark">#303030</color>
+    <color name="bottom_nav_item_color_dark">#BDBDBD</color>
+    <color name="bottom_nav_selected_item_color_dark">#82B1FF</color>
+    <color name="snackbar_background_color_dark">#455A64</color>
+    <color name="snackbar_text_color_dark">#FFFFFF</color>
+    <color name="snackbar_action_text_color_dark">#FFD180</color>
+</resources>

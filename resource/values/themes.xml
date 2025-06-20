@@ -1,64 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <!-- Base application theme. -->
-  <style name="Base.Theme.WinlatorDownloader" parent="Theme.Material3.DayNight.NoActionBar">
-    <!-- Habilitar Dynamic Colors do Material You -->
-    <item name="android:windowBackground">?attr/colorSurface</item> 
-    <item name="android:statusBarColor">@android:color/transparent</item>
-    <item name="android:navigationBarColor">@android:color/transparent</item>
-    <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-    <item name="android:enforceNavigationBarContrast" tools:targetApi="q">true</item>
-    <item name="android:enforceStatusBarContrast" tools:targetApi="q">true</item>
-    
-    <!-- Fallback para dispositivos sem suporte a Dynamic Colors -->
-    <item name="colorPrimary">@color/fallback_primary</item>
-    <item name="colorOnPrimary">@color/fallback_on_primary</item>
-    <item name="colorPrimaryContainer">@color/fallback_primary_container</item>
-    <item name="colorOnPrimaryContainer">@color/fallback_on_primary_container</item>
-    
-    <item name="colorSecondary">@color/fallback_secondary</item>
-    <item name="colorOnSecondary">@color/fallback_on_secondary</item>
-    <item name="colorSecondaryContainer">@color/fallback_secondary_container</item>
-    <item name="colorOnSecondaryContainer">@color/fallback_on_secondary_container</item>
-    
-    <item name="colorTertiary">@color/fallback_tertiary</item>
-    <item name="colorOnTertiary">@color/fallback_on_tertiary</item>
-    <item name="colorTertiaryContainer">@color/fallback_tertiary_container</item>
-    <item name="colorOnTertiaryContainer">@color/fallback_on_tertiary_container</item>
-    
-    <item name="colorError">@color/fallback_error</item>
-    <item name="colorOnError">@color/fallback_on_error</item>
-    <item name="colorErrorContainer">@color/fallback_error_container</item>
-    <item name="colorOnErrorContainer">@color/fallback_on_error_container</item>
-    
-    <item name="android:colorBackground">@color/fallback_background</item>
-    <item name="colorOnBackground">@color/fallback_on_background</item>
-    <item name="colorSurface">@color/fallback_surface</item>
-    <item name="colorOnSurface">@color/fallback_on_surface</item>
-    
-    <item name="colorSurfaceVariant">@color/fallback_surface_variant</item>
-    <item name="colorOnSurfaceVariant">@color/fallback_on_surface_variant</item>
-    <item name="colorOutline">@color/fallback_outline</item>
-    
-    <!-- Customize ActionMode for selection -->
-    <item name="actionModeBackground">?attr/colorPrimaryContainer</item>
-    <item name="actionModeCloseDrawable">@android:drawable/ic_menu_close_clear_cancel</item>
-    <item name="actionModeCloseButtonStyle">@style/Widget.AppCompat.ActionButton.CloseMode</item>
-    <item name="actionBarTheme">@style/ThemeOverlay.Material3.ActionBar</item>
-    <item name="actionModeStyle">@style/Widget.Material3.ActionMode</item>
-  </style>
+    <!-- Base application theme. -->
+    <style name="Theme.WinlatorDownloader" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/xbox_accent_green</item>
+        <item name="colorPrimaryVariant">@color/xbox_accent_green_variant</item> <!-- For M2, M3 uses colorPrimaryContainer -->
+        <item name="colorOnPrimary">@color/xbox_text_primary_dark</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/xbox_accent_blue</item>
+        <item name="colorSecondaryVariant">@color/xbox_accent_blue</item> <!-- For M2, M3 uses colorSecondaryContainer -->
+        <item name="colorOnSecondary">@color/xbox_text_primary_dark</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/xbox_status_bar_dark</item>
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/xbox_background_dark</item>
+        <item name="colorSurface">@color/xbox_surface_dark</item>
+        <item name="colorOnBackground">@color/xbox_text_primary_dark</item>
+        <item name="colorOnSurface">@color/xbox_text_primary_dark</item>
+        <!-- Error color -->
+        <item name="colorError">@color/red</item> <!-- Keep a standard error color -->
+        <item name="colorOnError">@color/white</item>
 
-  <style name="Theme.WinlatorDownloader" parent="Base.Theme.WinlatorDownloader" />
-  
-  <!-- Estilo para botões -->
-  <style name="Widget.App.Button" parent="Widget.Material3.Button">
-    <item name="android:textAppearance">?attr/textAppearanceBodyMedium</item>
-  </style>
-  
-  <!-- Estilo para cards -->
-  <style name="Widget.App.CardView" parent="Widget.Material3.CardView.Elevated">
-    <item name="cardElevation">2dp</item>
-    <item name="cardCornerRadius">12dp</item>
-  </style>
+        <!-- Material3 specific attributes (if not using M3 parent, these might not apply) -->
+        <item name="colorPrimaryContainer">@color/xbox_surface_dark</item>
+        <item name="colorOnPrimaryContainer">@color/xbox_text_primary_dark</item>
+        <item name="colorSecondaryContainer">@color/xbox_surface_dark</item>
+        <item name="colorOnSecondaryContainer">@color/xbox_text_primary_dark</item>
+        <item name="colorTertiary">@color/xbox_accent_blue</item> <!-- Example -->
+        <item name="colorOnTertiary">@color/xbox_text_primary_dark</item>
+        <item name="colorTertiaryContainer">@color/xbox_surface_dark</item>
+        <item name="colorOnTertiaryContainer">@color/xbox_text_primary_dark</item>
+        <item name="colorSurfaceVariant">@color/xbox_surface_dark</item> <!-- Slightly different surface variant -->
+        <item name="colorOnSurfaceVariant">@color/xbox_text_secondary_dark</item>
+        <item name="colorOutline">@color/xbox_text_secondary_dark</item>
+
+        <!-- Remove dynamic color overrides if present -->
+        <!-- <item name="android:forceDarkAllowed" tools:targetApi="q">false</item> -->
+        <!-- <item name="dynamicColorThemeOverlay">@null</item> -->
+
+        <!-- Component Styles -->
+        <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
+        <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
+        <item name="navigationViewStyle">@style/Widget.App.NavigationView</item>
+        <item name="android:buttonStyle">@style/Widget.App.Button</item> <!-- Basic button style -->
+        <item name="materialButtonStyle">@style/Widget.App.Button</item> <!-- Material buttons -->
+        <item name="floatingActionButtonStyle">@style/Widget.App.FloatingActionButton</item>
+
+        <!-- Text Appearances (Optional: Define if defaults aren't sufficient) -->
+        <!--
+        <item name="textAppearanceHeadline5">@style/TextAppearance.App.Headline5</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.App.Body1</item>
+        -->
+    </style>
+
+    <!-- Component Style Definitions -->
+    <style name="Widget.App.CardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/xbox_surface_dark</item>
+    </style>
+
+    <style name="Widget.App.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/xbox_surface_dark</item>
+        <item name="titleTextColor">@color/xbox_text_primary_dark</item>
+        <item name="subtitleTextColor">@color/xbox_text_secondary_dark</item>
+    </style>
+
+    <style name="Widget.App.NavigationView" parent="Widget.Material3.NavigationView">
+        <item name="android:background">@color/xbox_surface_dark</item>
+        <item name="itemIconTint">@color/xbox_text_secondary_dark</item>
+        <item name="itemTextColor">@color/xbox_text_primary_dark</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.App.NavigationView.ActiveIndicator</item>
+        <!-- <item name="itemShapeAppearanceOverlay">@null</item> remove rounded corners if desired -->
+    </style>
+     <style name="Widget.App.NavigationView.ActiveIndicator" parent="Widget.Material3.NavigationView.ActiveIndicator">
+         <item name="android:color">@color/xbox_accent_green_variant</item>
+     </style>
+
+
+    <style name="Widget.App.Button" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/xbox_accent_green</item>
+        <item name="android:textColor">@color/xbox_text_primary_dark</item>
+        <item name="rippleColor">@color/xbox_accent_green_variant</item>
+    </style>
+
+    <style name="Widget.App.Button.TextButton" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/xbox_accent_green</item>
+    </style>
+
+    <style name="Widget.App.FloatingActionButton" parent="Widget.Material3.FloatingActionButton.Primary">
+         <item name="backgroundTint">@color/xbox_accent_blue</item>
+         <item name="tint">@color/xbox_text_primary_dark</item> <!-- Icon color -->
+    </style>
+
+    <!-- You might need to define text appearances if default M3 text isn't what you want -->
+    <!--
+    <style name="TextAppearance.App.Headline5" parent="TextAppearance.Material3.Headline5">
+        <item name="android:textColor">@color/xbox_text_primary_dark</item>
+    </style>
+    <style name="TextAppearance.App.Body1" parent="TextAppearance.Material3.Body1">
+        <item name="android:textColor">@color/xbox_text_primary_dark</item>
+    </style>
+    -->
 </resources>
-
